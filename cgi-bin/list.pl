@@ -21,7 +21,27 @@ print <<HTML;
 				
 HTML
 
-print "<p>*lista*</p>";
+my $user = 'alumno';
+my $password = 'pweb1';
+my $dsn = "DBI:MariaDB:database=pweb1;host=192.168.1.5";
+my $dbh = DBI->connect($dsn, $user, $password) or die("No se pudo conectar!");;
+
+my $sth = $dbh->prepare("SELECT nombrePag FROM wiki");
+$sth->execute();
+# listado de paginas
+print "<ul>\n";
+while(my @row = $sth->fetchrow_array){
+
+    print "<li>\n";
+		print "<a href='view.pl?name=@row'>@row  </a>";
+		print "<a href='delete.pl?name=@row' class = 'botonesPaginas' >X</a>";
+		print "<a href='edit.pl?name=@row' class = 'botonesPaginas' >E</a>";
+    print "</li>\n";
+	
+}
+print "</ul>\n";
+$sth->finish;
+$dbh->disconnect;
 
 print <<HTML;
 		</div>

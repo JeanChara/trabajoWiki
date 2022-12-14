@@ -12,6 +12,10 @@ body{
 p{
   color: white;
 }
+a{
+  color: white;
+  text-decoration: none;
+}
 .borde{
   margin: auto;
   padding-top: 10px;
@@ -60,4 +64,13 @@ header{
   border: 3px solid  #DB7634;
   border-radius: 10px;
   box-sizing: border-box;
+}
+.botonesPaginas{
+  width: 1%;
+  color: white;
+  margin-right: 10px;
+  border: 1px solid white; 
+  text-decoration: none;
+  font-size: 20px;
+  transition: 2s;
 }
