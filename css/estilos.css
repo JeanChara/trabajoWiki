@@ -3,7 +3,7 @@ html{
   color: white;
 }
 body{
-	height: 800px;
+	height: 900px;
 	padding: 0px;
 	margin: 0px;
   background: linear-gradient(rgb(48, 48, 48), black);
@@ -43,4 +43,21 @@ header{
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+}
+.titulo{
+  width: 22%;
+  padding: 12px 20px;
+  margin: 20px 0;
+  display: inline-block;
+  border: 3px solid  #DB7634;
+  border-radius: 120px;
+  box-sizing: border-box;
+}
+.cuerpo{
+  width: 70%;
+  padding: 12px 20px;
+  margin: 20px 0;
+  border: 3px solid  #DB7634;
+  border-radius: 10px;
+  box-sizing: border-box;
 }

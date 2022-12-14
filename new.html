@@ -4,24 +4,28 @@
 	<head>
 		<link rel="icon" href="icon/UNSA.ico">
 		<link rel = "stylesheet" href = "css/estilos.css" >
-		<title> Pagina principal</title>
+		<title> Nueva Pagina</title>
 		<div = style="text-align: center;">
 			<img src = "img/logoUNSA.png" width = "500" height = "227" alt = "Logo UNSA">
 			<address class="autor">
-				<p>Curso: Programacion Web 1.</p>
 				<p>Autor: Jean Carlo Chara Condori.</p>
-				<p>Aplicacion: Tarea Wikipedia.</p> 
 			</address>
 		</div>
 	</head>
 
 	<body >
-		<div class="opciones">
-			<a href="list.pl"  class="boton" id="bordes1">Listados</a>
-			<a href="new.html" class="boton" id="bordes2">Nueva Pagina</a>
-		</div>
 		<div style="text-align: center;">
+			<p>Nueva pagina - markdown</p><br><br>
+			<a href="paginaPrincipal.html"  class="boton" >Cancelar</a> 
 
+			<form style="margin-top: 30px;" method = "GET" action="cgi-bin/new.pl">
+
+				<input class="titulo" type="text" placeholder="Ingrese el titulo" name="titulo"> <br>
+				<textarea class = "cuerpo" type="text" name="cuerpo"> </textarea><br>
+				
+				<input class="boton" id ="bordes1" style="background-color: black;" type="submit" value="Enviar">
+
+			</form>
 		</div>
 	</body>
 
@@ -33,8 +37,6 @@
 			var z = Math.floor(Math.random() * 256);
 			var color = "rgb(" + x + "," + y + "," + z + ")";
 			document.getElementById('bordes1').style.border = "thick solid "+color;
-			document.getElementById('bordes2').style.border= "thick solid "+color;
-			document.getElementById('bordes3').style.border = "thick solid "+color;
 		}
 	</script>
 </html>
