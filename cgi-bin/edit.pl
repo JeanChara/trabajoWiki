@@ -7,6 +7,25 @@ use warnings;
 
 ## calculamos value de cuerpo
 
+my $q = CGI->new;
+my $titulo = $q->param('titulo');
+
+my $user = 'alumno';
+my $password = 'pweb1';
+my $dsn = "DBI:MariaDB:database=pweb1;host=192.168.1.5";
+my $dbh = DBI->connect($dsn, $user, $password) or die("No se pudo conectar!");
+
+my $sth = $dbh->prepare("SELECT markdown FROM wiki WHERE nombrePag=?");
+$sth->execute($titulo);
+
+my @texto;
+while (my @row = $sth->fetchrow_array){
+  push (@texto,@row);
+}
+
+$sth->finish;
+$dbh->disconnect;
+
 print "Content-type: text/html\n\n";
 print <<HTML;
 
@@ -28,13 +47,14 @@ print <<HTML;
 			<p>Editando pagina - markdown</p><br><br>
 			<a href="../paginaPrincipal.html"  class="boton" >Cancelar</a> <br><br><br>
 
-			<h1>*Titulo*</h1>
+			<h1>$titulo</h1>
 			 
 			<form style="margin-top: 30px;" method = "GET" action="new.pl">
 
-				<textarea class = "cuerpo" type="text" name="cuerpo"> </textarea>
+				<textarea class = "cuerpo" type="text" name="cuerpo">@texto</textarea><br>
 				
 				<input class="boton" id ="bordes1" style="background-color: black;" type="submit" value="Enviar">
+				<input type = "hidden" name = "titulo" value = "$titulo">
 
 			</form>
 		</div>

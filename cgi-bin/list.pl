@@ -33,9 +33,9 @@ print "<ul>\n";
 while(my @row = $sth->fetchrow_array){
 
     print "<li>\n";
-		print "<a href='view.pl?name=@row'>@row  </a>";
-		print "<a href='delete.pl?name=@row' class = 'botonesPaginas' >X</a>";
-		print "<a href='edit.pl?name=@row' class = 'botonesPaginas' >E</a>";
+		print "<a href='view.pl?titulo=@row'>@row  </a>";
+		print "<a href='delete.pl?titulo=@row' class = 'botonesPaginas' >X</a>";
+		print "<a href='edit.pl?titulo=@row' class = 'botonesPaginas' >E</a>";
     print "</li>\n";
 	
 }

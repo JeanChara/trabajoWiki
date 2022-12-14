@@ -8,7 +8,7 @@ use warnings;
 ## borramos elemento seleccionado
 
 my $q = CGI->new;
-my $titulo = $q->param('name');
+my $titulo = $q->param('titulo');
 
 my $user= 'alumno';
 my $password = 'pweb1';
